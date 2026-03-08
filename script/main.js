@@ -21,6 +21,18 @@ window.addEventListener('load', () => {
     });
 });
 
+// Mobile Safari/Chrome often need a literal touchstart to unlock audio context reliably
+const unlockAudio = () => {
+    const song = document.querySelector('.song');
+    const video = document.querySelector('.birthday-video');
+    song.play().then(() => song.pause()).catch(() => {});
+    if(video) video.play().then(() => video.pause()).catch(() => {});
+    document.body.removeEventListener('touchstart', unlockAudio);
+    document.body.removeEventListener('click', unlockAudio);
+};
+document.body.addEventListener('touchstart', unlockAudio, { once: true });
+document.body.addEventListener('click', unlockAudio, { once: true });
+
 
 // animation timeline
 const animationTimeline = () => {
