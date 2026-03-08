@@ -1,0 +1,64 @@
+git : remote: 
+warning: File 
+video/0308(1)(1).mp4 
+is 66.50 MB; this is 
+larger than GitHub's 
+recommended maximum 
+file size of 50.00 MB 
+       
+At line:1 char:1
++ git push -f origin 
+main > push_error.txt 
+2>&1
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (remote: wa   
+ rning...0.00 MB      
+      :String) []    
+, RemoteException
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+remote: error: Trace: 
+807f50843318617d1244da
+256d29793306369c226556
+f74a88a10a676d56db50  
+      
+remote: error: See 
+https://gh.io/lfs for 
+more information.     
+   
+remote: error: File 
+video/0308(2).mp4 is 
+106.47 MB; this 
+exceeds GitHub's file 
+size limit of 100.00 
+MB        
+remote: error: File 
+video/0308(1).mp4 is 
+607.02 MB; this 
+exceeds GitHub's file 
+size limit of 100.00 
+MB        
+remote: error: GH001: 
+Large files detected. 
+You may want to try 
+Git Large File 
+Storage - https://git-
+lfs.github.com.       
+ 
+To https://github.com/
+RosinSeng/Happy-Birthd
+ay.git
+ ! [remote rejected] 
+main -> main 
+(pre-receive hook 
+declined)
+error: failed to push 
+some refs to 'https://
+github.com/RosinSeng/H
+appy-Birthday.git'
