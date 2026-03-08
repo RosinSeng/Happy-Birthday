@@ -8,15 +8,20 @@ window.addEventListener('load', () => {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes',
         cancelButtonText: 'No',
-        preConfirm: () => {
-            document.querySelector('.song').play().catch(e => console.log("Audio block:", e));
-            const video = document.querySelector(".birthday-video");
-            if (video) {
-                video.muted = false;
-                video.play().then(() => { video.pause(); video.currentTime = 0; }).catch(e => console.log("Video block:", e));
-            }
-        }
     }).then((result) => {
+        // Warm up video during user gesture (works on mobile Safari/Chrome)
+        var video = document.querySelector('.birthday-video');
+        if (video) {
+            video.muted = true;
+            video.play().then(function() {
+                video.pause();
+                video.currentTime = 0;
+            }).catch(function(e) { console.log('Video warmup:', e); });
+        }
+
+        // Always play background music (user gesture unlocks audio on mobile)
+        document.querySelector('.song').play().catch(function(e) { console.log('Audio:', e); });
+
         animationTimeline();
     });
 });
