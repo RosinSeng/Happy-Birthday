@@ -8,13 +8,16 @@ window.addEventListener('load', () => {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes',
         cancelButtonText: 'No',
-    }).then((result) => {
-        if (result.isConfirmed) {
-            document.querySelector('.song').play();
-            animationTimeline();
-        } else {
-            animationTimeline();
+        preConfirm: () => {
+            document.querySelector('.song').play().catch(e => console.log("Audio block:", e));
+            const video = document.querySelector(".birthday-video");
+            if (video) {
+                video.muted = false;
+                video.play().then(() => { video.pause(); video.currentTime = 0; }).catch(e => console.log("Video block:", e));
+            }
         }
+    }).then((result) => {
+        animationTimeline();
     });
 });
 
